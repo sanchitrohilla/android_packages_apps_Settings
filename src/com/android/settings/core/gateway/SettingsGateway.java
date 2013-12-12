@@ -114,6 +114,7 @@ import com.android.settings.notification.ZenModeSettings;
 import com.android.settings.notification.ZenModeVisualInterruptionSettings;
 import com.android.settings.password.ChooseLockPassword;
 import com.android.settings.password.ChooseLockPattern;
+import com.android.settings.password.ChooseLockPatternSize;
 import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
 import com.android.settings.security.LockscreenDashboardFragment;
@@ -274,6 +275,7 @@ public class SettingsGateway {
             ButtonSettings.class.getName(),
             ColorManagerFragment.class.getName(),
             RunningServices.class.getName()
+            ChooseLockPatternSize.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
