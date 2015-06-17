@@ -274,7 +274,7 @@ public class SettingsGateway {
             PulseSettings.class.getName(),
             ButtonSettings.class.getName(),
             ColorManagerFragment.class.getName(),
-            RunningServices.class.getName()
+            RunningServices.class.getName(),
             ChooseLockPatternSize.class.getName()
     };
 

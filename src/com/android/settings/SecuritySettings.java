@@ -40,6 +40,7 @@ import android.os.UserManager;
 import android.os.storage.StorageManager;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.service.trust.TrustAgentService;
 import android.support.annotation.VisibleForTesting;
 import android.support.v14.preference.SwitchPreference;
@@ -995,6 +996,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
         private static final String KEY_DOTS_VISIBLE = "dotsvisible";
         private static final String KEY_SHOW_ERROR_PATH = "showerrorpath";
         private static final String KEY_POWER_INSTANTLY_LOCKS = "power_button_instantly_locks";
+        private static final String KEY_DIRECTLY_SHOW = "directlyshow";
 
         // These switch preferences need special handling since they're not all stored in Settings.
         private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -1006,6 +1008,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
         private SwitchPreference mDotsVisible;
         private SwitchPreference mShowErrorPath;
         private SwitchPreference mPowerButtonInstantlyLocks;
+        private SwitchPreference mDirectlyShow;
 
         private TrustAgentManager mTrustAgentManager;
         private LockPatternUtils mLockPatternUtils;
@@ -1052,6 +1055,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 mPowerButtonInstantlyLocks.setChecked(
                         mLockPatternUtils.getPowerButtonInstantlyLocks(MY_USER_ID));
             }
+            if (mDirectlyShow != null) {
+                mDirectlyShow.setChecked(mLockPatternUtils.shouldPassToSecurityView(
+                        MY_USER_ID));
+            }
 
             mOwnerInfoPreferenceController.updateSummary();
         }
@@ -1080,6 +1087,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 setupLockAfterPreference();
                 updateLockAfterPreferenceSummary();
             }
+
+            // directly show
+            mDirectlyShow = (SwitchPreference) findPreference(KEY_DIRECTLY_SHOW);
 
             // visible pattern
             mVisiblePattern = (SwitchPreference) findPreference(KEY_VISIBLE_PATTERN);
