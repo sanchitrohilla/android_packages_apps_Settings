@@ -249,4 +249,6 @@
     <string name="expanded_desktop_style">Expanded desktop style</string>
     <string name="expanded_desktop_style_description">Choose a default expanded desktop style</string>
     <string name="expanded_desktop_title">Expanded desktop options</string>
+  <string name="font_picker_title">Font</string>
+
 </resources>
