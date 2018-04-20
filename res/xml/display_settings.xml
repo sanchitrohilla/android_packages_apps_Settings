@@ -153,6 +153,6 @@
             android:title="@string/font_picker_title"
             android:persistent="false" />
 
-    </PreferenceCategory>
+   
 
 </PreferenceScreen>
