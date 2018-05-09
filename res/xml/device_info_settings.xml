@@ -51,6 +51,10 @@
                 android:summary="@string/device_status_summary"
                 android:fragment="com.android.settings.deviceinfo.Status"/>
 
+        <Preference android:key="device_maintainer"
+                android:title="@string/maintainer_title"
+                android:summary="@string/device_maintainer" />
+
         <!-- Manual -->
         <Preference
                 android:key="manual"
